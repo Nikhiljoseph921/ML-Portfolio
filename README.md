@@ -42,5 +42,5 @@ Each folder contains a **Jupyter Notebook** with full analysis and modeling step
 ## 🚀 How to Run  
 Clone the repo:  
 ```bash
-git clone https://github.com/Nikhil-ML-Portfolio.git  
-cd Nikhil-ML-Portfolio  
+git clone https://github.com/Nikhiljoseph921/ML-Portfolio.git  
+ 
