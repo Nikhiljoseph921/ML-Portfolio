@@ -4,10 +4,11 @@ A comprehensive collection of machine learning and deep learning projects built 
 ## 📚 Table of Contents  
 - 📌 [About](#about)  
 - 📂 [Project Showcase](#project-showcase)  
-- 🛠 [Tech Stack](#tech-stack)  
+- 🛠 [Tech Stack](#tech-stack)
+- 📫 [Contact](#contact)  
 - 🚀 [How to Run](#how-to-run)  
 - 📈 [GitHub Stats](#github-stats)  
-- 📫 [Contact](#contact)  
+
 
 ## 📌 About  
 This portfolio was created as part of my MSc in Data Science coursework. It contains structured Jupyter Notebooks demonstrating practical knowledge of ML and DL concepts. Each project includes:  
@@ -37,16 +38,18 @@ Each folder contains a **Jupyter Notebook** with full analysis and modeling step
 - Python  
 - Jupyter Notebook  
 - NumPy, Pandas, Matplotlib  
-- Scikit-Learn, TensorFlow, Keras  
-
-## 🚀 How to Run  
-Clone the repo:  
-```bash
-git clone https://github.com/Nikhiljoseph921/ML-Portfolio.git  
+- Scikit-Learn, TensorFlow, Keras
 
 ## 📫 Contact  
 📧 Email: your.email@example.com  
 🔗 LinkedIn: [Your Profile](https://www.linkedin.com/in/yourprofile/)  
 🐦 Twitter: [@yourhandle](https://twitter.com/yourhandle)  
 📂 GitHub: [Nikhil-ML-Portfolio](https://github.com/Nikhil-ML-Portfolio)  
+
+## 🚀 How to Run  
+Clone the repository:  
+```bash
+git clone https://github.com/Nikhiljoseph921/ML-Portfolio.git  
+
+
 
