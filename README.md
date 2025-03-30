@@ -41,10 +41,9 @@ Each folder contains a **Jupyter Notebook** with full analysis and modeling step
 - Scikit-Learn, TensorFlow, Keras
 
 ## 📫 Contact  
-📧 Email: your.email@example.com  
-🔗 LinkedIn: [Your Profile](https://www.linkedin.com/in/yourprofile/)  
-🐦 Twitter: [@yourhandle](https://twitter.com/yourhandle)  
-📂 GitHub: [Nikhil-ML-Portfolio](https://github.com/Nikhil-ML-Portfolio)  
+📧 Email: nilkhiljoseph9210@gmail.com  
+🔗 LinkedIn: [Your Profile]((https://www.linkedin.com/in/nikhil-joseph-/))   
+📂 GitHub: [Nikhil-ML-Portfolio](https://github.com/Nikhiljoseph921/ML-Portfolio)  
 
 ## 🚀 How to Run  
 Clone the repository:  
