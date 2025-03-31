@@ -58,10 +58,9 @@ You can view the deployed Linear Regression model here:https://linear-deploy-pxw
 This app demonstrates a simple linear regression model for predicting power consumption based on temperature and humidity inputs.
 
 📖 References
+
 This portfolio is based on datasets and tools from various sources:
-
 📊 Datasets: Kaggle, UCI Machine Learning Repository
-
 💻 Cloud Computing & Collaboration: Google Colab
 
 
