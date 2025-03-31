@@ -2,12 +2,13 @@
 A comprehensive collection of machine learning and deep learning projects built using Python, with a focus on practical implementation, model tuning, and deployment readiness.
 
 ## 📚 Table of Contents  
-- 📌 [About](#📌-about)  
+- 📌 [About](https://github.com/Nikhiljoseph921/ML-Portfolio/blob/main/README.md#-about)  
 - 📂 [Project Showcase](https://github.com/Nikhiljoseph921/ML-Portfolio/blob/main/README.md#-project-showcase)  
-- 🛠 [Tech Stack](#🛠-tech-stack)  
-- 📫 [Contact](#📫-contact)  
-- 🚀 [How to Run](#🚀-how-to-run)  
-- 🌐 [Deployment Link](#🌐-deployment-link) 
+- 🛠 [Tech Stack](https://github.com/Nikhiljoseph921/ML-Portfolio/blob/main/README.md#-tech-stack)  
+- 📫 [Contact](https://github.com/Nikhiljoseph921/ML-Portfolio/blob/main/README.md#-contact)
+- 🚀 [How to Run](https://github.com/Nikhiljoseph921/ML-Portfolio/blob/main/README.md#-how-to-run)  
+- 🌐 [Deployment Link](https://github.com/Nikhiljoseph921/ML-Portfolio/blob/main/README.md#-deployment-link)
+- 📖 [References](#references) 
 
 
 ## 📌 About  
