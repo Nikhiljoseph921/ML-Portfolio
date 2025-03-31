@@ -52,9 +52,9 @@ Clone the repository:
 git clone https://github.com/Nikhiljoseph921/ML-Portfolio.git
 ```
 
-🌐 Deployment Link
-You can view the deployed Linear Regression model here:
-Linear Regression Deployment
+## 🌐 Deployment Link
+You can view the deployed Linear Regression model here:https://linear-deploy-pxwxmngam6kwykj4dzyiwi.streamlit.app/
+
 This app demonstrates a simple linear regression model for predicting power consumption based on temperature and humidity inputs.
 
 
