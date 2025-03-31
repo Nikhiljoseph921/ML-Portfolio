@@ -12,12 +12,6 @@ A comprehensive collection of machine learning and deep learning projects built 
 
 
 ## 📌 About  
-This portfolio was created as part of my MSc in Data Science coursework. It contains structured Jupyter Notebooks demonstrating practical knowledge of ML and DL concepts. Each project includes:  
-- 📊 Data preprocessing & visualization  
-- 🏗 Model training, evaluation, and improvement  
-- 📝 Experiment tracking and insights
-
-  📌 About
 This portfolio was created as part of my MSc in Data Science coursework. It contains structured Jupyter Notebooks demonstrating practical knowledge of ML and DL concepts. Each project includes:
 
 📊 Data Preprocessing & Visualization:
