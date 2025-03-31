@@ -45,6 +45,7 @@ Each folder contains a **Jupyter Notebook** with full analysis and modeling step
 🔗 LinkedIn: [Your Profile]((https://www.linkedin.com/in/nikhil-joseph-/))   
 📂 GitHub: [Nikhil-ML-Portfolio](https://github.com/Nikhiljoseph921/ML-Portfolio)  
 
+
 ## 🚀 How to Run  
 Clone the repository:  
 ```bash
@@ -53,6 +54,8 @@ git clone https://github.com/Nikhiljoseph921/ML-Portfolio.git
 🌐 Deployment Link
 You can view the deployed Linear Regression model here:
 Linear Regression Deployment
+This app demonstrates a simple linear regression model for predicting power consumption based on temperature and humidity inputs.
+Now, **"Deployment Link"** will have its own heading (`## 🌐 Deployment Link`), just like **"How to Run"** and **"Contact"** sections, so it will stand out as a separate section in your portfolio.
 
 
 
