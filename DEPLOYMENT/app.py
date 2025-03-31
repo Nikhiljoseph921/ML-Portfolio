@@ -1,112 +1,144 @@
 import streamlit as st
 import pandas as pd
-import pickle
+import joblib
+import seaborn as sns
 import matplotlib.pyplot as plt
-import requests
-import io
+import statsmodels.api as sm
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_absolute_error, r2_score
 from sklearn.preprocessing import RobustScaler
+from statsmodels.stats.outliers_influence import variance_inflation_factor
 
-# GitHub raw URLs for model and scaler
-MODEL_URL = "https://raw.githubusercontent.com/Nikhiljoseph921/ML-Portfolio/main/DEPLOYMENT/linear.pkl"
-SCALER_URL = "https://raw.githubusercontent.com/Nikhiljoseph921/ML-Portfolio/main/DEPLOYMENT/scaler.pkl"
+# Streamlit UI
+st.title("  AI-Driven Power Forecasting with Linear Regression")
 
-# Function to load pickle file from GitHub URL
-def load_pickle_from_url(url):
-    response = requests.get(url)
-    response.raise_for_status()  # Raise an error for bad responses (4xx and 5xx)
-    return pickle.load(io.BytesIO(response.content))
+# Load dataset automatically
+default_file = "power.csv"
+df = pd.read_csv(default_file)
 
-# Load model and scaler
-try:
-    model = load_pickle_from_url(MODEL_URL)
-    scaler = load_pickle_from_url(SCALER_URL)
-    st.success("Model and Scaler loaded successfully!")
-except Exception as e:
-    st.error(f"Error loading model/scaler: {e}")
+st.write("📊 Dataset:")
+st.dataframe(df.head())
 
-# Custom CSS for dark mode
-st.markdown(
-    """
-    <style>
-    body {
-        background-color: #121212;
-        color: white;
-    }
-    .stApp {
-        background-color: #1e1e1e;
-    }
-    .input-text {
-        font-size: 18px;
-        font-weight: bold;
-        color: white;
-    }
-    .prediction-text {
-        font-size: 24px;
-        font-weight: bold;
-        color: #ffcc00;
-        text-shadow: 0px 0px 10px rgba(255,204,0,0.8);
-    }
-    .stNumberInput>div>div>input {
-        background-color: #262626;
-        color: white;
-        border-radius: 8px;
-        border: 1px solid #444;
-        font-size: 16px;
-    }
-    .stButton>button {
-        background-color: #ff4d4d;
-        color: white;
-        font-size: 18px;
-        border-radius: 8px;
-    }
-    </style>
-    """, unsafe_allow_html=True
-)
+# Preprocessing: Rename columns for consistency
+df.rename(columns={'AT': 'Temperature', 'PE': 'PowerConsumption', 'RH': 'Humidity'}, inplace=True)
 
-st.markdown("<h1 style='text-align: center; color: #00ccff;'>⚡ Power Consumption Prediction  </h1>", unsafe_allow_html=True)
+# Display summary statistics
+st.write("📌 **Dataset Summary**")
+st.dataframe(df.describe())
+st.write("\n\n\n\n")
 
-# User Input: Temperature and Humidity
-st.markdown("<p class='input-text'>Enter Temperature (AT) (°C)</p>", unsafe_allow_html=True)
-temperature = st.number_input('', min_value=0.0, max_value=50.0, step=0.1)
+# Check for missing values
+st.write("🔍 **Missing Values**")
+st.dataframe(df.isnull().sum())
 
-st.markdown("<p class='input-text'>Enter Humidity (RH) (%)</p>", unsafe_allow_html=True)
-humidity = st.number_input('', min_value=0.0, max_value=100.0, step=0.1)
+# Correlation Heatmap
+st.write("🔗 **Correlation Matrix**")
+plt.figure(figsize=(10, 8))
+sns.heatmap(df.corr(), annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)
+st.pyplot(plt)
+st.write("\n\n\n\n")
 
-# Prepare the input data
-input_data = pd.DataFrame({'Temperature': [temperature], 'Humidity': [humidity]})
-scaled_data = scaler.transform(input_data)
+# Scatter plot: Temperature vs Power Consumption
+st.markdown("## 🌡️ Power Consumption vs Temperature")
+plt.figure(figsize=(10, 8))
+sns.scatterplot(data=df, x='Temperature', y='PowerConsumption')
+plt.xlabel("Temperature (AT)")
+plt.ylabel("Power Consumption (PE)")
+st.pyplot(plt)
+st.write("\n\n\n\n")
 
-# Prediction Function
-def plot_prediction_chart(prediction):
-    fig, ax = plt.subplots(figsize=(6, 4))
+# Scatter plot: Humidity vs Power Consumption
+st.markdown("## 💦 Power Consumption vs Humidity")
+plt.figure(figsize=(10, 8))
+sns.scatterplot(data=df, x='Humidity', y='PowerConsumption')
+st.pyplot(plt)
+st.write("\n\n\n\n")
+
+# Define target variable
+y = df["PowerConsumption"]
+X = df[['Temperature', 'Humidity']]
+
+# Check for multicollinearity using Variance Inflation Factor (VIF)
+X_with_const = sm.add_constant(X)
+vif_data = pd.DataFrame()
+vif_data["Feature"] = X.columns
+vif_data["VIF"] = [variance_inflation_factor(X_with_const.values, i+1) for i in range(len(X.columns))]
+st.write("📊 **Variance Inflation Factor (VIF)**")
+st.dataframe(vif_data)
+st.write("\n\n\n\n")
+
+# Train-Test Split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train Model
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Show model coefficients
+st.write(f"📏 **Model Intercept:** {model.intercept_}")
+st.write(f"📊 **Model Coefficients:** {model.coef_}")
+
+# Predict on test data
+y_pred = model.predict(X_test)
+
+# Model Performance Metrics
+r2 = r2_score(y_test, y_pred)
+mae = mean_absolute_error(y_test, y_pred)
+
+st.write(f"🎯 **R² Score:** {r2:.4f}")
+st.write(f"📉 **Mean Absolute Error (MAE):** {mae:.4f}")
+st.write("\n\n\n\n")
+
+# Scatter plot: Actual vs Predicted
+st.markdown("## 🔬 Actual vs Predicted Power Consumption")
+plt.figure(figsize=(12, 8))
+plt.scatter(y_test, y_pred, color='blue', s=15, label="Predicted vs Actual")
+plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], color='red', lw=2, label='Perfect Prediction')
+plt.xlabel("Actual Power Consumption")
+plt.ylabel("Predicted Power Consumption")
+plt.legend()
+st.pyplot(plt)
+st.write("\n\n\n\n")
+
+# Save trained model
+joblib.dump(model, "linear_model.pkl")
+
+# Load model for deployment
+model = joblib.load("linear_model.pkl")
+
+# Make predictions using full dataset
+predictions = model.predict(X)
+df["Prediction"] = predictions
+
+st.markdown("## ✅ Predictions")
+st.dataframe(df)
+st.write("\n\n\n\n")
+
+# Download predictions
+csv = df.to_csv(index=False).encode("utf-8")
+st.download_button("📥 Download Predictions", data=csv, file_name="predictions.csv", mime="text/csv")
+st.write("\n\n\n\n")
+
+# User Input for Prediction
+st.markdown("## 📝 Make a Prediction")
+temp_input = st.number_input("Enter Temperature:", min_value=0.0, max_value=100.0, value=25.0)
+humidity_input = st.number_input("Enter Humidity:", min_value=0.0, max_value=100.0, value=50.0)
+st.write("\n\n\n\n")
+
+if st.button("# Predict Power Consumption"):
+    user_input = pd.DataFrame({'Temperature': [temp_input], 'Humidity': [humidity_input]})
+    predicted_power = model.predict(user_input)[0]
+    st.write(f"⚡ **Predicted Power Consumption:** {predicted_power:.2f}")
     
-    # Adjusting y-axis limits dynamically
-    y_max = max(prediction * 1.2, 10)  # Ensures space above the bar
+    # Visualization
+    st.markdown("## 📉 Visualization of Prediction")
+    plt.figure(figsize=(8, 6))
+    plt.bar(["Predicted Power Consumption"], [predicted_power], color='green')
+    plt.ylabel("Power Consumption")
+    plt.text(0, predicted_power, f"{predicted_power:.2f}", ha='center', va='bottom', fontsize=12, fontweight='bold', color='white', bbox=dict(facecolor='black', alpha=0.5))
+    st.pyplot(plt)
+    st.write("\n\n\n\n")
     
-    bars = ax.bar(['Predicted Power Consumption'], [prediction], color='royalblue', alpha=0.6, edgecolor='black')
-
-    # Display the predicted value on top of the bar
-    for bar in bars:
-        height = bar.get_height()
-        ax.text(bar.get_x() + bar.get_width()/2, height + 0.5, f"{prediction:.2f} kW", 
-                ha='center', fontsize=14, fontweight='bold', color='yellow')
-
-    ax.set_ylim(0, y_max)  # Set the y-axis limit
-    ax.set_ylabel('Power Consumption (kW)', fontsize=12, color='white')
-    ax.set_title('Power Consumption Prediction', fontsize=14, color='white')
     
-    # Enhance aesthetics
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
-    ax.set_facecolor("#262626")  # Dark background for better visibility
 
-    st.pyplot(fig)
-
-# Make Prediction
-if st.button('⚡ Predict Power Consumption ⚡'):
-    prediction = model.predict(scaled_data)
-    
-    st.markdown(f"<p class='prediction-text'>⚡ Predicted Power Consumption: {prediction[0]:.2f} kW ⚡</p>", unsafe_allow_html=True)
-
-    # Show Graph
-    plot_prediction_chart(prediction[0])
