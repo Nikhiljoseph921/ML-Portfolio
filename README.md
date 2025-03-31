@@ -61,8 +61,8 @@ This app demonstrates a simple linear regression model for predicting power cons
 ## 📖 References
 
 This portfolio is based on datasets and tools from various sources:
-📊 Datasets: Kaggle, UCI Machine Learning Repository
-💻 Cloud Computing & Collaboration: Google Colab
+-📊 Datasets: Kaggle, UCI Machine Learning Repository
+-💻 Cloud Computing & Collaboration: Google Colab
 
 
 
