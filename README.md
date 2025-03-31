@@ -2,12 +2,12 @@
 A comprehensive collection of machine learning and deep learning projects built using Python, with a focus on practical implementation, model tuning, and deployment readiness.
 
 ## 📚 Table of Contents  
-- 📌 [About](#📌about)  
-- 📂 [Project Showcase](#project-showcase)  
-- 🛠 [Tech Stack](#tech-stack)
-- 📫 [Contact](#contact)  
-- 🚀 [How to Run](#how-to-run)
-- 🌐 [Deployment Link](#deployment-link) 
+- 📌 [About](#📌-about)  
+- 📂 [Project Showcase](#📂-project-showcase)  
+- 🛠 [Tech Stack](#🛠-tech-stack)  
+- 📫 [Contact](#📫-contact)  
+- 🚀 [How to Run](#🚀-how-to-run)  
+- 🌐 [Deployment Link](#🌐-deployment-link)  
 
 
 ## 📌 About  
