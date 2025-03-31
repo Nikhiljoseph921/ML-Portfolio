@@ -3,7 +3,7 @@ A comprehensive collection of machine learning and deep learning projects built 
 
 ## 📚 Table of Contents  
 - 📌 [About](#📌-about)  
-- 📂 [Project Showcase](#📂-project-showcase)  
+- 📂 [Project Showcase](https://github.com/Nikhiljoseph921/ML-Portfolio/blob/main/README.md#-project-showcase)  
 - 🛠 [Tech Stack](#🛠-tech-stack)  
 - 📫 [Contact](#📫-contact)  
 - 🚀 [How to Run](#🚀-how-to-run)  
