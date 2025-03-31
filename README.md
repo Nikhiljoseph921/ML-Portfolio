@@ -8,7 +8,7 @@ A comprehensive collection of machine learning and deep learning projects built 
 - 📫 [Contact](https://github.com/Nikhiljoseph921/ML-Portfolio/blob/main/README.md#-contact)
 - 🚀 [How to Run](https://github.com/Nikhiljoseph921/ML-Portfolio/blob/main/README.md#-how-to-run)  
 - 🌐 [Deployment Link](https://github.com/Nikhiljoseph921/ML-Portfolio/blob/main/README.md#-deployment-link)
-- 📖 [References](#references) 
+- 📖 [References](https://github.com/Nikhiljoseph921/ML-Portfolio/blob/main/README.md#-references) 
 
 
 ## 📌 About  
