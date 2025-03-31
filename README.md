@@ -48,7 +48,11 @@ Each folder contains a **Jupyter Notebook** with full analysis and modeling step
 ## 🚀 How to Run  
 Clone the repository:  
 ```bash
-git clone https://github.com/Nikhiljoseph921/ML-Portfolio.git  
+git clone https://github.com/Nikhiljoseph921/ML-Portfolio.git
+
+🌐 Deployment Link
+You can view the deployed Linear Regression model here:
+Linear Regression Deployment
 
 
 
