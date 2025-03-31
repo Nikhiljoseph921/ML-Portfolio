@@ -14,47 +14,13 @@ A comprehensive collection of machine learning and deep learning projects built 
 ## 📌 About  
 This portfolio was created as part of my MSc in Data Science coursework. It contains structured Jupyter Notebooks demonstrating practical knowledge of ML and DL concepts. Each project includes:
 
-📊 Data Preprocessing & Visualization:
+📊 Data Preprocessing & Visualization
 
-Handling missing values, outliers, and categorical encoding
+🏗 Model Training, Evaluation, and Improvement
 
-Feature scaling and transformation techniques
+🔍 Feature Engineering & Selection
 
-Exploratory Data Analysis (EDA) with histograms, scatter plots, and correlation matrices
-
-🏗 Model Training, Evaluation, and Improvement:
-
-Training machine learning models with hyperparameter tuning
-
-Performance evaluation using metrics like accuracy, RMSE, F1-score, and AUC-ROC
-
-Model interpretability using feature importance and SHAP values
-
-🔍 Feature Engineering & Selection:
-
-Creating new features using domain knowledge
-
-Reducing dimensionality with PCA and feature selection techniques
-
-📝 Experiment Tracking and Insights:
-
-Logging results for different models and hyperparameters
-
-Comparing baseline models with optimized versions
-
-Generating business insights from model outputs
-
-Each project provides a hands-on learning experience, ensuring deployment readiness for real-world applications.
-
-This makes it more detailed and informative! Let me know if you need any refinements. 🚀
-
-
-
-
-
-
-
-
+📝 Experiment Tracking and Insights
 
 
 
