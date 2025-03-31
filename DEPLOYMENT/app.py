@@ -14,8 +14,8 @@ from statsmodels.stats.outliers_influence import variance_inflation_factor
 st.title("  AI-Driven Power Forecasting with Linear Regression")
 
 # Load dataset automatically
-default_file = "power.csv"
-df = pd.read_csv(default_file)
+df = pd.read_csv("power.csv")
+
 
 st.write("📊 Dataset:")
 st.dataframe(df.head())
