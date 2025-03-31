@@ -6,8 +6,8 @@ A comprehensive collection of machine learning and deep learning projects built 
 - 📂 [Project Showcase](#project-showcase)  
 - 🛠 [Tech Stack](#tech-stack)
 - 📫 [Contact](#contact)  
-- 🚀 [How to Run](#how-to-run)  
-- 📈 [GitHub Stats](#github-stats)  
+- 🚀 [How to Run](#how-to-run)
+- 🌐 [Deployment Link](#deployment-link) 
 
 
 ## 📌 About  
